@@ -17,9 +17,7 @@ use App\Http\Controllers\RestauranteController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');})->name('InicialPage');
 
 Auth::routes();
 
@@ -36,9 +34,9 @@ Route::controller(ReservaController::class)->group(function(){
     Route::get('/reservar/{id_restaurante}', 'index')->name('reserva.index');
     Route::post('/reserva/{id_restaurante}', 'new')->name('reserva.insertar');
     Route::get('/reservas','index2')->name('reservas.usuario');
-    Route::put('/reserva/{id}', 'update')->name('reserva.actualizar');
-    Route::delete('/reserva/{id}', 'destroy')->name('reserva.eliminar');
-    
+    Route::post('/reserva/modificar/{id_reserva}', 'showmod')->name('reserva.modificar');
+    Route::put('/reserva/modificar/{id}', 'update')->name('reserva.actualizar');
+    Route::delete('/reserva/{id}', 'destroy')->name('reserva.eliminar');    
 });
 
 Route::controller(RestauranteController::class)->group(function(){

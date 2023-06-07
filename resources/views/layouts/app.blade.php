@@ -23,7 +23,7 @@
   <div id="app">
     <nav class="navbar navbar-expand-lg bg-warning">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">{{ config('app.name', 'Laravel') }}</a>
+        <a class="navbar-brand" href="{{route('InicialPage')}}">{{ config('app.name', 'Laravel') }}</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,7 +33,7 @@
               <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{{route('reservas.usuario')}}">Mis reservas</a>
+              <a class="nav-link" href="{{route('reservas.usuario')}}">MIS RESERVAS</a>
             </li>
           </ul>
           <ul class="navbar-nav ms-auto">
@@ -63,19 +63,86 @@
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                   @csrf
                 </form>
-              </div>
+
+                <a class="dropdown-item" href="" onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                Cambiar datos de usuario
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+                </form>
+              </div>   
+
+              
+              
             </li>
+
+            
+            
             @endguest
           </ul>
         </div>
       </div>
     </nav>
 
-    <main class="py-4">
+    <main class="py-2">
       @yield('content')
     </main>
   </div>
+
+  {{-- FOOTER --}}
+  <div class="container">
+    <footer class="row row-cols-1 row-cols-sm-2 row-cols-md-5 py-5 my-5 border-top">
+      <div class="col mb-3">
+        <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+          <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+        </a>
+        <p class="text-muted">© 2022</p>
+      </div>
+
+      <div class="col mb-3">
+
+      </div>
+
+      <div class="col mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
+
+      <div class="col mb-3">
+        <h5>Section</h5>
+        <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Home</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Features</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Pricing</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">FAQs</a></li>
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">About</a></li>
+        </ul>
+      </div>
+    </footer>
+  </div>
+
+
+
 </body>
+
 
 </html>
 

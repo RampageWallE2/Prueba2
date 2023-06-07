@@ -31,9 +31,23 @@ class ReservaController extends Controller
         return view('/reservas/reservasuser', compact('reservas'));
 
     }
+    public function showmod($id_reserva){
+        $reserva = Reserva::find($id_reserva);  
+        $id_restaurante = $reserva->id_restaurante;
+        $restaurante = Restaurante::find($id_restaurante);  
+        return view ('/reservas/reservamod',compact('reserva','restaurante'));
+    }
 
 
     public function new( Request $request, $id_restaurante){
+
+        $request->validate([
+            'fecha_reserva' => 'required',
+            'cantidad'=> 'required'
+
+        ]); 
+
+
         $id = auth()->user()->id;
         $reserva = new Reserva();
         $reserva -> id_restaurante = $id_restaurante;
@@ -44,23 +58,17 @@ class ReservaController extends Controller
         $reserva -> save();
 
         return redirect('home');
-
-
     }
-    public function update( Request $request, $id){
+    
+    public function update( Request $request, $id_reserva){
 
-        $reserva = Reserva::findOrFail($request ->id);
-
-        $reserva -> id_restaurante = $request->id_restaurante;
-        $reserva -> id_cliente = $request -> id_cliente;
-        $reserva -> cant = $request->cant;
-
+        $reserva = Reserva::findOrFail($id_reserva);
+        $reserva -> fecha_reserva = $request->fecha_reserva;
+        $reserva -> cantidad = $request->cantidad;
         $reserva->save();
-
-        return response()->json([
-            "RESULTADO"=>$reserva
-        ]);
+        return redirect(route('reservas.usuario'));
     }
+
     public function destroy($id){
         Reserva::destroy($id);
         return redirect(route('reservas.usuario'));

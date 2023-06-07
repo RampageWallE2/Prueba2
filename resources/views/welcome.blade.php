@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.84.0">
-  <title>Cover Template · Bootstrap v5.0</title>
+  <title>Reservas en tu restaurante favorito</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 
@@ -105,8 +105,6 @@
           <a href="#" class="nav-link "  href="#">WEBIWABO</a>
           <a href="#" class="nav-link "  href="#">WEBIWABO</a>
 
-
-
           @if (Route::has('login'))
             @auth
             <a href="{{ url('/home') }}" class="nav-link active"  href="#">Home</a>
@@ -132,24 +130,24 @@
         <div class="carousel-inner">
           <div class="carousel-item active">
             
-            <img href=('../resources/pictures/FotoPiero.jpg') style="width: 200px; height: 640px; border: 2px solid red" class="d-block w-100" alt="Image"/>
+            <img src="https://e.rpp-noticias.io/xlarge/2019/09/10/403040_838455.jpg" style="width: 200px; height: 640px; border: 2px solid red" class="d-block w-100" alt="Image"/>
             <div class="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Some representative placeholder content for the first slide.</p>
+              <h5>LOS MEJORES RESTAURANTES</h5>
+              <p>Podras enconetrar los mejores restaurante del Peru</p>
             </div>
           </div>
           <div class="carousel-item">
-            <img href="..." style="width: 200px; height: 640px; border: 2px solid red" class="d-block w-100" alt="Image"/>
+            <img src="https://www.peruhop.com/wp-content/uploads/saha.jpg" style="width: 200px; height: 640px; border: 2px solid red" class="d-block w-100" alt="Image"/>
             <div class="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Some representative placeholder content for the second slide.</p>
+              <h5>TENDRAS FLEXIBILIODAD EN LA MANIPULACION DE TUS DATOS</h5>
+              <p></p>
             </div>
           </div>
           <div class="carousel-item">
-            <img src="..." style="width: 200px; height: 640px; border: 2px solid red" class="d-block w-100" alt="Image"/>
+            <img src="https://www.exquisitoperu.com/wp-content/uploads/2019/03/mayta.jpg" style="width: 200px; height: 640px; border: 2px solid red" class="d-block w-100" alt="Image"/>
             <div class="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Some representative placeholder content for the third slide.</p>
+              <h5>RESERVA AQUI</h5>
+              <p>RESERVA PE CAUSA.</p>
             </div>
           </div>
         </div>

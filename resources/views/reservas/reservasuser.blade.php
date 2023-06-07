@@ -28,8 +28,9 @@
                         <td>{{$reserva->cantidad}}</td>
                         <td>{{$reserva->fecha_reserva}}</td>
                         <td class="text-center">
-                            <form action="" method="POST">
-                                <button class="btn btn-warning">
+                            <form action="{{route('reserva.modificar',$reserva->_id)}}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-warning">
                                     MODIFICAR                                
                                 </button>
                             </form>
@@ -48,22 +49,5 @@
                 @endforeach
             </tbody>
         </table>
-        
-        {{-- <h4>Reservar en {{$restaurante->nombre}}</h4>
-        <form action="{{route('reserva.insertar',$restaurante->_id)}}" method="POST">
-            @csrf
-            <label>
-                Fecha de asistencia: <br>
-                <input type="date" name="fecha_reserva"> <br>
-            </label>
-            <br>
-            <label>
-                Cantidad de personas: <br>
-                <input type="integer" name="cantidad">
-            </label>
-            <br>
-            <button type="submit"> ENVIAR RESERVA</button>
-            
-        </form> --}}
     </div>
 @endsection

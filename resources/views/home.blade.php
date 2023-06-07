@@ -3,6 +3,7 @@
 @section('content')
 <main>
     <style>
+
         .bd-placeholder-img {
             font-size: 1.125rem;
             text-anchor: middle;
@@ -16,6 +17,7 @@
                 font-size: 3.5rem;
             }
         }
+        
     </style>
 
     <div class="album py-5 bg-danger">
@@ -24,7 +26,8 @@
                 @foreach ($restaurantes as $restaurante)
                 <div class="col">
                     <div class="card shadow-sm">
-                        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        <img src="{{$restaurante->imagen_portada}}"  width="420" height="200" alt="">
+                        {{-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> --}}
                         <div class="card-body bg-primary">
                             <p class="card-text text-center"><strong>{{$restaurante->nombre}}</strong></p>
                             <p class="card-text">{{$restaurante->descripcion}}</p>
