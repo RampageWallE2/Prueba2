@@ -16,9 +16,13 @@
                                 @csrf
                                 <div class="row mb-3">
                                     <label class="col-md-4 col-form-label text-md-end">FECHA DE ASISTENCIA</label>
-        
                                     <div class="col-md-6">
-                                        <input type="date" class="form-control" name="fecha_reserva" value="">
+                                        <input type="date" class="form-control" name="fecha_reserva" value="{{old('fecha_reserva')}}">
+                                        @error('fecha_reserva')
+                                        <br>
+                                        <small>*{{$message}}</small>    
+                                        <br>                                                                                    
+                                        @enderror
                                     </div>
                                 </div>
         
@@ -26,7 +30,12 @@
                                     <label for="number" class="col-md-4 col-form-label text-md-end">CANTIDAD DE ASISTENTES</label>
         
                                     <div class="col-md-6">
-                                        <input  type="number" class="form-control @error('password') is-invalid @enderror" name="cantidad" value="">
+                                        <input  type="number" class="form-control" name="cantidad" value="{{old('cantidad')}}">
+                                        @error('cantidad')
+                                            <br>
+                                            <small>*{{$message}}</small>    
+                                            <br>                                                                                    
+                                        @enderror
                                     </div>
                                 </div>
     

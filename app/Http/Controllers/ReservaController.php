@@ -42,8 +42,8 @@ class ReservaController extends Controller
     public function new( Request $request, $id_restaurante){
 
         $request->validate([
-            'fecha_reserva' => 'required',
-            'cantidad'=> 'required'
+            'fecha_reserva'=>'required',
+            'cantidad'=>'required'
 
         ]); 
 
@@ -57,12 +57,17 @@ class ReservaController extends Controller
 
         $reserva -> save();
 
-        return redirect('home');
+        return redirect(route('reservas.usuario'));
     }
     
     public function update( Request $request, $id_reserva){
 
-        $reserva = Reserva::findOrFail($id_reserva);
+        $request->validate([
+            'fecha_reserva'=>'required',
+            'cantidad'=>'required'
+        ]);
+
+        $reserva = Reserva::where('_id', $id_reserva)->first();
         $reserva -> fecha_reserva = $request->fecha_reserva;
         $reserva -> cantidad = $request->cantidad;
         $reserva->save();

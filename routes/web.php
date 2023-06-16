@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\RestauranteController;
+use App\Http\Controllers\ConsultaController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +26,15 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::controller(ConsultaController::class)->group(function(){
+    Route::get('/consultas','index')->name('consultas.index');
+    Route::get('/consultas/registrar','indexinsert')->name('consulta.insertar');
+    Route::post('/consultas/registrar','new')->name('consulta.insertar.confirmar');
+    Route::delete('/consultas/eliminar/{id}','destroy')->name('consulta.eliminar');
+    Route::get('/consultas/modificar/{id}','showToUpdate')->name('consulta.mostrar.modificar');
+    Route::put('/consultas/modificar/{id}', 'update')->name('consulta.actualizar');
+});
+
 Route::controller(FacturaController::class)->group(function(){
     Route::get('/facturas', 'index');
     Route::post('/factura', 'new');
@@ -31,7 +43,7 @@ Route::controller(FacturaController::class)->group(function(){
 });
 
 Route::controller(ReservaController::class)->group(function(){
-    Route::get('/reservar/{id_restaurante}', 'index')->name('reserva.index');
+    Route::post('/reservar/{id_restaurante}', 'index')->name('reserva.index');
     Route::post('/reserva/{id_restaurante}', 'new')->name('reserva.insertar');
     Route::get('/reservas','index2')->name('reservas.usuario');
     Route::post('/reserva/modificar/{id_reserva}', 'showmod')->name('reserva.modificar');
